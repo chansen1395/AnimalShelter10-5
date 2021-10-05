@@ -15,8 +15,24 @@
 <ul>
   @foreach(Animal animal in Model)
   {
-      <li>@Html.ActionLink($"{animal.Name}", "Show", new { id = animal.AnimalId })</li>
+    <li>@Html.ActionLink($"{animal.Name}", "Show", new { id = animal.AnimalId })</li>
   }
 </ul>
 
 <p>@Html.ActionLink("Add new Animal", "Create")</p>
+
+@using (Html.BeginForm())
+{
+    @Html.DropDownList("Index", new List<SelectListItem>
+    { 
+      new SelectListItem { Text = "Name", Value = "Name", Selected=true},
+      new SelectListItem { Text = "Date (Most Recent)", Value = "DateAdmitted"},
+    }, "Order By")
+  <input type="submit" value="View Animals"/>
+}
+
+<!-- button for orderby = 1 (=date)
+button for orderby = 2 (=name)
+button for .... = ....
+|
+Index(orderby..) -->

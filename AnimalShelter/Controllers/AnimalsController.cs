@@ -13,10 +13,10 @@ namespace AnimalShelter.Controllers
     {
       _db = db;
     }
-
+// pets.OrderBy(pet => pet.Age)
     public ActionResult Index()
     {
-      List<Animal> model = _db.Animals.ToList();
+      List<Animal> model = _db.Animals.OrderBy(x=>x.Name).ToList();
       return View(model);
     }
 

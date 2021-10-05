@@ -1,3 +1,5 @@
+@using System;
+
 @{
   Layout = "_Layout";
 }
@@ -6,5 +8,9 @@
 
 <h2>Animal Details</h2>
 <hr />
+<h3>@Html.DisplayNameFor(model => model.ThisTypes): @Html.DisplayFor(model => model.ThisTypes)<h3>
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)<h3>
+<h3>@Html.DisplayNameFor(model => model.Gender): @Html.DisplayFor(model => model.Gender)<h3>
+<h3>@Html.DisplayNameFor(model => model.DateAdmitted): @Html.DisplayFor(model => model.DateAdmitted)<h3>
+<h3>@Html.DisplayNameFor(model => model.Breed): @Html.DisplayFor(model => model.Breed)<h3>
 <p>@Html.ActionLink("Back to list", "Index")</p>
