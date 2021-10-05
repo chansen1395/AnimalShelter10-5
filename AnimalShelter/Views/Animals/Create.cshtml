@@ -10,15 +10,29 @@
 <h4>Add a new Animal</h4>
 @using (Html.BeginForm())
 {
-    @Html.LabelFor(model => model.ThisTypes)
-    @Html.DropDownList("ThisTypes", new SelectList(Enum.GetValues(typeof(Types))), "Select Types", new { @class = "form-control"})
-
-    @Html.LabelFor(model => model.Gender)
-    @Html.DropDownList("Gender", new SelectList(Enum.GetValues(typeof(Gender))), "Select Gender", new { @class = "form-control"})
+    @Html.DropDownList("ThisTypes", new List<SelectListItem>
+    { 
+      new SelectListItem { Text = "Cat", Value = "cat", Selected=true},
+      new SelectListItem { Text = "Dog", Value = "dog"},
+    }, "Select Type") 
 
     @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
 
-    <input type="submit" value="Add new task" />
+    @Html.DropDownList("Gender", new List<SelectListItem>
+    { 
+      new SelectListItem { Text = "Male", Value = "male", Selected=true},
+      new SelectListItem { Text = "Female", Value = "female"},
+    }, "Select Gender") 
+
+    @Html.LabelFor(model => model.DateAdmitted)
+    @Html.TextBoxFor(model => model.DateAdmitted, new { @type = "date" })
+
+    @Html.LabelFor(model => model.Breed)
+    @Html.TextBoxFor(model =>model.Breed)
+
+
+    <input type="submit" value="Add new animal" />
 
 }
 <p>@Html.ActionLink("Show all Animals", "Index")</p>
