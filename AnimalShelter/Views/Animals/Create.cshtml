@@ -1,0 +1,25 @@
+@using AnimalShelter.Models
+
+@{
+  Layout = "_Layout";
+}
+
+
+@model AnimalShelter.Models.Animal
+
+<h4>Add a new Animal</h4>
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(model => model.ThisTypes)
+    @Html.DropDownList("ThisTypes", new SelectList(Enum.GetValues(typeof(Types))), "Select Types", new { @class = "form-control"})
+
+    @Html.LabelFor(model => model.Gender)
+    @Html.DropDownList("Gender", new SelectList(Enum.GetValues(typeof(Gender))), "Select Gender", new { @class = "form-control"})
+
+    @Html.LabelFor(model => model.Name)
+
+    <input type="submit" value="Add new task" />
+
+}
+<p>@Html.ActionLink("Show all Animals", "Index")</p>
+
