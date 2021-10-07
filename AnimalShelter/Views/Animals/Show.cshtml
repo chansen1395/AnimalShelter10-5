@@ -14,3 +14,5 @@
 <h3>@Html.DisplayNameFor(model => model.DateAdmitted): @Html.DisplayFor(model => model.DateAdmitted)<h3>
 <h3>@Html.DisplayNameFor(model => model.Breed): @Html.DisplayFor(model => model.Breed)<h3>
 <p>@Html.ActionLink("Back to list", "Index")</p>
+<p>@Html.ActionLink("Edit Animal", "Edit", new { id = Model.AnimalId })</p>
+<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.AnimalId })</p>
